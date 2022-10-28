@@ -1,7 +1,7 @@
-package creatormode.singleton;
+package creatormode.singleton.type_01;
 
 /**
- * 单例模式（饿汉式）
+ * 单例模式（饿汉式，静态常量）
  *
  * @author: clarity
  * @date: 2022年10月26日 17:24
