@@ -1,10 +1,10 @@
-package creatormode.singleton.type_03;
+package creatormode.singleton.type_05;
 
 /**
- * 单例模式（懒加载，线程不安全）
+ * 懒汉式（线程安全，同步代码块）但是其实并不是线程安全的
  *
  * @author: clarity
- * @date: 2022年10月26日 20:53
+ * @date: 2022年10月28日 20:10
  */
 public class LazySingleTonTest {
 
@@ -12,27 +12,28 @@ public class LazySingleTonTest {
         System.out.println("线程不安全的单例模式");
         LazySingleTon instance1 = LazySingleTon.getInstance();
         LazySingleTon instance2 = LazySingleTon.getInstance();
-        System.out.println(instance1 == instance2);
         System.out.println(instance1.hashCode());
         System.out.println(instance2.hashCode());
+        System.out.println(instance1 == instance2);
     }
 
 }
 
 class LazySingleTon {
 
-    private static LazySingleTon lazySingleTon;
-
     private LazySingleTon() {
 
     }
 
-    // 提供一个公共的静态方法调用，但是该方法不是线程安全的
+    private static LazySingleTon lazySingleTon;
+
+
     public static LazySingleTon getInstance() {
         if (lazySingleTon == null) {
-            lazySingleTon = new LazySingleTon();
+            synchronized (LazySingleTon.class) {
+                lazySingleTon = new LazySingleTon();
+            }
         }
         return lazySingleTon;
     }
-
 }
