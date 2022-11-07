@@ -1,34 +1,25 @@
-package creatormode.factory.simplefactory.order;
+package creatormode.factory.factorymethod.order;
 
-import creatormode.factory.simplefactory.pizza.Pizza;
+import creatormode.factory.factorymethod.pizza.Pizza;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * 订购 pizza
+ * 订购 Pizza 类
  *
  * @author: clarity
- * @date: 2022年10月29日 20:53
+ * @date: 2022年11月07日 10:22
  */
-public class OrderPizza {
+public abstract class OrderPizza {
 
-    private SimpleFactory simpleFactory;
-
-    private Pizza pizza = null;
-
-    public OrderPizza(SimpleFactory simpleFactory) {
-        // 设置简单工厂
-        setSimpleFactory(simpleFactory);
-    }
-
-    public void setSimpleFactory(SimpleFactory simpleFactory) {
-        this.simpleFactory = simpleFactory;
+    public OrderPizza() {
+        Pizza pizza = null;
         String orderType = "";
         do {
             orderType = getType();
-            Pizza pizza = this.simpleFactory.createPizza(orderType);
+            pizza = createPizza(orderType);
             if (pizza != null) {
                 pizza.prepare();
                 pizza.bake();
@@ -40,7 +31,6 @@ public class OrderPizza {
             }
         } while (true);
     }
-
 
     // 写一个方法，可以获取客户希望订购的披萨种类
     private String getType() {
@@ -54,5 +44,8 @@ public class OrderPizza {
             return "";
         }
     }
+
+    // 创建一个抽象方法，把具体地区的 Pizza 交给具体地区的订购 Pizza 类实现
+    public abstract Pizza createPizza(String orderType);
 
 }

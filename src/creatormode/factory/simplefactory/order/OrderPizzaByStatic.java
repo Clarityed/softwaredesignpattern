@@ -7,28 +7,22 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * 订购 pizza
+ * 订购 Pizza 通过静态方法
  *
  * @author: clarity
- * @date: 2022年10月29日 20:53
+ * @date: 2022年11月06日 16:59
  */
-public class OrderPizza {
+public class OrderPizzaByStatic {
 
-    private SimpleFactory simpleFactory;
-
-    private Pizza pizza = null;
-
-    public OrderPizza(SimpleFactory simpleFactory) {
-        // 设置简单工厂
-        setSimpleFactory(simpleFactory);
+    public OrderPizzaByStatic() {
+        setSimpleFactory();
     }
 
-    public void setSimpleFactory(SimpleFactory simpleFactory) {
-        this.simpleFactory = simpleFactory;
+    public void setSimpleFactory() {
         String orderType = "";
         do {
             orderType = getType();
-            Pizza pizza = this.simpleFactory.createPizza(orderType);
+            Pizza pizza = SimpleFactory.createPizzaStatic(orderType);
             if (pizza != null) {
                 pizza.prepare();
                 pizza.bake();
@@ -40,7 +34,6 @@ public class OrderPizza {
             }
         } while (true);
     }
-
 
     // 写一个方法，可以获取客户希望订购的披萨种类
     private String getType() {

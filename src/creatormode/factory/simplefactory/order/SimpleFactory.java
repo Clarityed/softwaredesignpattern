@@ -31,4 +31,22 @@ public class SimpleFactory {
 
     }
 
+    public static Pizza createPizzaStatic(String orderType) {
+
+        System.out.println("使用简单工厂模式，静态方法调用");
+        Pizza pizza = null;
+        if ("cheese".equals(orderType)) {
+            pizza = new CheesePizza();
+            pizza.setName("cheese");
+        } else if ("greek".equals(orderType)) {
+            pizza = new GreekPizza();
+            pizza.setName("greek");
+        } else if ("pepper".equals(orderType)) {
+            pizza = new PepperPizza();
+            pizza.setName("pepper");
+        }
+        return pizza;
+
+    }
+
 }

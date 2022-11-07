@@ -9,7 +9,9 @@ package creatormode.factory.simplefactory.order;
 public class PizzaStore {
 
     public static void main(String[] args) {
-        new OrderPizza(new SimpleFactory());
+        // new OrderPizza(new SimpleFactory());
+        // 调用静态简单工厂方法订购 Pizza
+        new OrderPizzaByStatic();
     }
 
 }
