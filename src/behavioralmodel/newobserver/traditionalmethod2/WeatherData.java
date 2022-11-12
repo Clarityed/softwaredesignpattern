@@ -54,4 +54,5 @@ public class WeatherData {
         this.humidity = humidity;
         dataChange();
     }
+
 }
