@@ -1,4 +1,4 @@
-package behavioralmodel.Observer;
+package behavioralmodel.observer;
 
 import java.util.ArrayList;
 import java.util.List;

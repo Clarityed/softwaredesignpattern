@@ -1,4 +1,4 @@
-package behavioralmodel.Observer;
+package behavioralmodel.observer;
 
 public class WeiXinUser implements Observer {
 

@@ -1,4 +1,4 @@
-package behavioralmodel.Observer;
+package behavioralmodel.observer;
 
 public interface Observer {
 
