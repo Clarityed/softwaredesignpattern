@@ -1,4 +1,4 @@
-package structuralmode.adapter2022.classadapter;
+package structuralmode.adapter2022.objectadapter;
 
 /**
  * 手机类
